@@ -4,41 +4,42 @@ from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 import json
 
+
 ###API ########################
-ckey = "CuIFG1DblkEC36JFzJByX5mi7"
-csecret = "Nc8sgHQ1n2Fb1qpHma9LudER1wOELLP4tNzzpz6YAIQnmRF9Qh"
-atoken = "1204786641635827712-XXmfW6V9O2i6CVS4X1SykT5Tp7GpjY"
-asecret = "S76F2rIurjJnpwctfYQ9a2tprXp7pP8UNI8lYlfWSuqKW"
+ckey = "6Zyv4XxVypDqHDpFoHwSTrMzX"
+csecret = "3J5TpltHtmEZGEw8RhRLABc3KQ2Quhjj2SVVykfw5zs02fjtpC"
+atoken = "153168970-C8H0rPCjztDmLQMrjtgOYSPIzjLMyegrtrAZQQrq"
+asecret = "WxWpMOMlghN1tVYZRFugRWTefM1SShLWVI4lL4oPWTAlO"
 #####################################
 
 class listener(StreamListener):
-
+    
     def on_data(self, data):
         dictTweet = json.loads(data)
         try:
             dictTweet["_id"] = str(dictTweet['id'])
             doc = db.save(dictTweet)
-            print("SAVED" + str(doc) + "=>" + str(data))
+            print ("SAVED" + str(doc) +"=>" + str(data))
         except:
-            print("Already exists")
+            print ("Already exists")
             pass
         return True
-
+    
     def on_error(self, status):
-        print(status)
-
+        print (status)
+        
 auth = OAuthHandler(ckey, csecret)
 auth.set_access_token(atoken, asecret)
 twitterStream = Stream(auth, listener())
 
 '''========couchdb'=========='''
-server = couchdb.Server('http://admin:couchy@localhost:5984/')
+server = couchdb.Server('http://admin:admin@localhost:5984/')  #('http://115.146.93.184:5984/')
 try:
-    db = server.create('politica2')
+    db = server.create('presidenciales_nacionales')
 except:
-    db = server['politica2']
-'''===============LISTAS, NOMBRES Y REPRESENTANTES=============='''
-twitterStream.filter(track=['Quito candidatos','Ecuador','Machala','Portoviejo','Esmeraldas','Ciudad de Milagro','Babahoyo','Latacunga','Guillermo Alberto Santiago Lasso Mendoza','Fabricio Correa Delgado','Wilson Gustavo Larrea Cabrera','Lucio Gutiérrez Borbúa','Andrés David Aráuz Galarza','Guillermo Alejandro Celi Santos','Yaku Sacha Pérez Guartambel','Cesar Montúfar Mancheno','Isidro Romero Carbo','Carlos Gerson Almedia Espinoza','Ximena Peña Pacheco','Paúl Ernesto Carrasco Carpio','Esteban Leopoldo Quirola Bustos','Miguel Salem Kronfle','Cristina Reyes','Xavier Hervas','Pedro José Freile','Juan Fernando Velasco Torres','Washington Arturo Pesántez Muñoz','Unión Ecuatoriana','Pachakutik','Partido Social Patriota','Consejo Nacional Electoral Ecuador','Centro democrático','Pierina Correa Delgado','Geovanni Atarihuana','Unión Popular','Ecuador unido','Rocío Juca', 'Partido Social Cristiano','Henry Kronfle', 'Javier Ortiz', 'Libertad es Pueblo','Fernando Balda','Fuerza EC','Abdalá Bucaram Ortiz', 'Democracia Sí','Xavier Zavala Egas','César Monge','Alianza PAIS',  'César Litardo','Fernando Villavicencio'])
+    db = server['presidenciales_nacionales']
+    
+'''===============LOCATIONS=============='''    
 
-'''===============GEOLOCALIZACIÓN: QUITO=============='''
-#twitterStream.filter(locations=[-78.619545,-0.365889,-78.441315,-0.047208])
+#twitterStream.filter(locations=[-79.95912,-2.287573,-79.856351,-2.053362]) 
+twitterStream.filter(track=["Andrés Arauz","Lucio Gutiérrez","David Norero","Gerson Almeida","Martha Villafuerte","Cristina Reyes","Diego Salgado","Isidro Romero","Sofía Merino", "Esteban Quirola", "Juan Carlos Machuca","Miguel Salem Kronfle","Gustavo Bucaram Ortiz", "Fabricio Correa","Marcia Yazbell","Xavier Hervas","María Sara Jijón", "Pedro José Freile","Byron Solís", "Yaku Pérez","Washington Pesántez","José Díaz","Gustavo Larrea","Alexandra Peralta","Guillermo Lasso","Alfredo Borrero", "Guillermo Celi","Verónica Sevilla","Juan Fernando Velasco","Ana María Pesantes", "Paúl Carrasco","Frank Vargas Anda", "Ximena Peña","Patricio Barriga","César Montúfar","Julio Villacreses"])
