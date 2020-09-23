@@ -174,10 +174,36 @@ Donde:
 
 ## Transformación de datos 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
+En cuanto a la tranformación de datos de la base de datos CouchDB, se usaron los siguientes comandos:
+
+## Se tomó los datos de la base de datos _politica2_ que hace referencia a los tweets tomando por ciudades. Se los exporta en archivo JSON
 
 ```
-Da un ejemplo
+curl -X GET http://admin:couchy@127.0.0.1:5984/politica2/_all_docs?include_docs=true > C:/Users/politicaCiudades.json
+```
+
+## Se tomó los datos de la base de datos _porprovincias_ que hace referencia a los tweets tomando por provincias. Se los exporta en archivo JSON
+
+```
+curl -X GET http://admin:couchy@127.0.0.1:5984/porprovincias/_all_docs?include_docs=true > C:/Users/politicaProvincias.json
+```
+
+## Se tomó los datos de la base de datos _covid_ que hace referencia a los tweets tomados acerca de la pandemia del Coronavirus. Se los exporta en archivo JSON
+
+```
+curl -X GET http://admin:couchy@127.0.0.1:5984/covid/_all_docs?include_docs=true > C:/Users/covid.json
+```
+
+## Se tomó los datos de la base de datos _juegos_ que hace referencia a los tweets tomandos por nombres de juegos encontrados desde el webscrapping. Se los exporta en archivo CSV para su debido análisis
+
+```
+curl -X GET http://admin:couchy@127.0.0.1:5984/juegos/_all_docs?include_docs=true > C:/Users/juegosOnline.CSV
+```
+
+## Se tomó los datos de la base de datos _messi_ que hace referencia a los tweets sobre la salida del jugador Leo Messi del Barcelona. Se los exporta en archivo JSON
+
+```
+curl -X GET http://admin:couchy@127.0.0.1:5984/messi/_all_docs?include_docs=true > C:/Users/messi.json
 ```
 
 ## MapReduce 🔧
@@ -218,49 +244,16 @@ _Explica que verifican estas pruebas y por qué_
 Da un ejemplo
 ```
 
-## Despliegue 📦
-
-_Agrega notas adicionales sobre como hacer deploy_
-
-## Construido con 🛠️
-
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
-
-## Contribuyendo 🖇️
-
-Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
-
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
-
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
 
 ## Autores ✒️
 
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
+* **Alejandro Armas** 
+* **Yajaira Cuatis** 
+* **Christian Llumquinga** 
 
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
 
-## Licencia 📄
-
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
-
-## Expresiones de Gratitud 🎁
-
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* etc.
 
 
 
