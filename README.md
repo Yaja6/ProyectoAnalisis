@@ -529,7 +529,7 @@ El MapReduce fue realizado con las herramientas Kibana y PowerBI por lo que se e
 
 El mapping dentro de cada índice fueron los siguientes:
 
-Dentro de los índices: messiBarcelona, politicaxprivincia
+Dentro de los índices: messiBarcelona, politicaxprivincia se usa el script **mapping.conf**
 
 ```
 {
