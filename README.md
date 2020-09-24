@@ -568,9 +568,16 @@ constraint id_juego primary key(id_juego)
 ```
 
 **4. Uso de comando para importar los datos del archivo juegos_twit.csv hacia la base de datos creada**
+Hacia la tabla datos_juegos:
 
 ```
 load data local infile 'C:/Users/l_jan/Documents/Desarrollo de Software/Cuarto Semestre/Analisis de Datos/Proyecto Final/Data Juegos/juegos_twit.csv' into table datos_juegos fields terminated by ';' lines terminated by '\r\n';
+```
+
+Hacia la tabla precio_juegos:
+
+```
+load data local infile 'C:/Users/l_jan/Documents/Desarrollo de Software/Cuarto Semestre/Analisis de Datos/Proyecto Final/Data Juegos/juegos_precios.csv' into table precios_juegos fields terminated by ';' lines terminated by '\r\n';
 ```
 ## MapReduce 🔧
 
