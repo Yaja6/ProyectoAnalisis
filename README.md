@@ -519,10 +519,58 @@ Linea_Base varchar(45),
 );
 ```
 
-**2. Uso de comando para importar los datos del archivo Libro1.CSV hacia la base de datos creada
+**2. Uso de comando para importar los datos del archivo Libro1.CSV hacia la base de datos creada**
 
 ```
 load data local infile 'C:/Users/l_jan/Documents/Desarrollo de Software/Cuarto Semestre/Analisis de Datos/Proyecto Final/Covid Dataset/Datos para Power BI/Libro1.csv' into table paises_covid fields terminated by ';' lines terminated by '\r\n';
+```
+
+**3. Creación de tablas dentro de la base de datos juegos**
+
+```
+create database juegos;
+use juegos;
+create table datos_juegos (
+Id_tweet varchar(255),	
+Id_key	text,	
+doc	 text,	
+rev	text,	
+created_at	datetime,	
+texto text,		
+valor1	text,		
+among_us	text,		
+valo2	text,		
+GTA	text,		
+valo3	text,		
+LOL	text,		
+valor4	text,		
+Free_Fire	text,		
+valo5	text,		
+Call_of_Duty text,		
+valor6	text,		
+Batman	text,		
+valor7	text,		
+Dota	text,		
+valor8	text,		
+Fornite	text,	
+valor9	text,		
+Resident_Evil text,		
+
+constraint dat_id primary key (Id_tweet)
+
+);
+create table precios_juegos(
+id_juego int(10) auto_increment,
+nombre text,
+precio text,
+constraint id_juego primary key(id_juego) 
+);
+```
+
+**4. Uso de comando para importar los datos del archivo juegos_twit.csv hacia la base de datos creada**
+
+```
+load data local infile 'C:/Users/l_jan/Documents/Desarrollo de Software/Cuarto Semestre/Analisis de Datos/Proyecto Final/Data Juegos/juegos_twit.csv' into table datos_juegos fields terminated by ';' lines terminated by '\r\n';
 ```
 ## MapReduce 🔧
 
