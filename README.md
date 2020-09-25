@@ -5,6 +5,7 @@
 **archivos JSON y CSV Finales:** https://mega.nz/file/vBEjTSpZ#iZidFwpiJi9ryKcBk8Eymwy0bNcU2eIo6_yLORXcbPg
 
 **Video de Youtube:**
+https://youtu.be/SKAMb6Qcydw
 
 Proceso detallado sobre el uso de scripts
 
